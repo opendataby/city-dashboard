@@ -4,20 +4,44 @@ layout: default
 
 <div class="home">
 
-  <h1 class="page-heading">Posts</h1>
+  <h1 class="page-heading">Гарадскі дашборд</h1>
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+  <div class="row">
+    <div class="col-xs-6 col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-body easypiechart-panel">
+          <h4>Забруджванне:</h4>
+          <div class="easypiechart" id="easypiechart-blue" data-percent="92" ><span class="percent">92%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-6 col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-body easypiechart-panel">
+          <h4>ДТП:</h4>
+          <div class="easypiechart" id="easypiechart-orange" data-percent="65" ><span class="percent">65%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-6 col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-body easypiechart-panel">
+          <h4>Школы:</h4>
+          <div class="easypiechart" id="easypiechart-teal" data-percent="56" ><span class="percent">56%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-6 col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-body easypiechart-panel">
+          <h4>:</h4>
+          <div class="easypiechart" id="easypiechart-red" data-percent="27" ><span class="percent">27%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!--/.row-->
 </div>
