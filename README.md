@@ -37,3 +37,6 @@ git push git@github.com:своёимя/city-dashboard.git
 
 По всем вопросам относительно информации из этого раздела можете смело писать на konstantin.reido@gmail.com
 
+# Ссылки
+[Ответы на вопросы](https://github.com/opendataby/city-dashboard/blob/master/docs/faq.md)
+
