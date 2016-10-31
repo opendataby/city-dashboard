@@ -1,0 +1,14 @@
+{
+  "name": "city-dashboard-scripts",
+  "version": "1.0.0",
+  "description": "scripts for process data for minsk city dashboard",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "geojson-area": "^0.2.1"
+  }
+}
