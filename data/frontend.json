@@ -1,0 +1,31 @@
+[
+  {
+    city: "Minsk",
+    params: [
+      {
+        "parameter": "pollution",
+        "average": "200",
+        "value": "100",
+        "isOk": true
+      },
+      {
+        "parameter": "accidents",
+        "average": "120",
+        "value": "80",
+        "isOk": false
+      },
+      {
+        "parameter": "amenity",
+        "average": "50",
+        "value": "10",
+        "isOk": true
+      },
+      {
+        "parameter": "forest",
+        "average": "1000",
+        "value": "678",
+        "isOk": true
+      }
+    ]
+  }
+]
