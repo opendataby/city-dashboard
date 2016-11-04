@@ -1,0 +1,26 @@
+.panel.chart-panel {
+  background-color: #00aec5;
+  color: #fff;
+
+  &:hover {
+    background-color: #007a8a;
+  }
+
+  .chart-panel__easypiechart {
+    background-color: #fff;
+    padding-top: 5px;
+    margin-top: 0;
+  }
+}
+
+.chart-panel__icon {
+  float: left;
+  font-size: 16px;
+  margin: 10px 0 10px 10px;
+}
+
+.chart-panel h4 {
+  font-size: 15px;
+  color: #fff;
+}
+

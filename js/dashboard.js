@@ -3,10 +3,11 @@ $(function () {
     $.get('/city-dashboard/data/test.json', function (data) {
         console.log(data)
 
-        var template = `<div class="panel panel-default">
+        var template = `<div class="panel panel-default chart-panel">
 					<div class="panel-body easypiechart-panel">
+					    <i class="fa fa-area-chart chart-panel__icon" aria-hidden="true"></i>
 						<h4>Забруджванне</h4>
-						<div class="easypiechart" id="easypiechart-blue" data-percent="${data.pollution}" ><span class="percent">${data.pollution}%</span>
+						<div class="easypiechart chart-panel__easypiechart" id="easypiechart-blue" data-percent="${data.pollution}" ><span class="percent">${data.pollution}%</span>
 						</div>
 					</div>
 				</div>`
