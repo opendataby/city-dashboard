@@ -1,6 +1,8 @@
 .panel.chart-panel {
   background-color: #00aec5;
   color: #fff;
+  width: 148px;
+  margin: auto;
 
   &:hover {
     background-color: #007a8a;
@@ -57,4 +59,36 @@
 
 .chart-panel__dimension {
   color: #a5a5c4;
+}
+
+@media screen and (max-width: 600px) {
+  .col-xs-3.col-mobile {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .panel.chart-panel {
+    width: 128px;
+
+    .chart-panel__easypiechart {
+      width: 120px;
+    }
+
+    .chart-panel__dimension {
+      font-size: 12px;
+    }
+
+    .percent.chart-panel__value {
+      width: 120px;
+    }
+  }
+
+  .chart-panel h4 {
+    font-size: 12px;
+  }
+
+  .chart-panel__achievement {
+    left: 87px;
+  }
 }
