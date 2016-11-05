@@ -3,29 +3,23 @@
     "name": "Минск",
     "districts": [
       {
-        "name": "Советский",
+        "name": "Уручье",
         "indicators": [
           {
-            "name": "Загрязнение",
-            "average": "200",
-            "value": "100",
-            "unit": "кг/ам",
+            "name": "Загрязнение твёрдыми частицами",
+            "average": "100",
+            "value": "200",
+            "unit": "%",
             "isOk": true
           },
           {
-            "name": "accidents",
-            "average": "120",
-            "value": "80",
-            "isOk": false
-          },
-          {
-            "name": "amenity",
-            "average": "50",
-            "value": "10",
+            "name": "Лесопарковые территории",
+            "average": "18",
+            "value": "16.1",
             "isOk": true
           },
           {
-            "name": "Количество кафешек",
+            "name": "Обеспеченность общепитом",
             "average": "7",
             "value": "3",
             "unit": "шт",
@@ -34,7 +28,7 @@
         ]
       },
       {
-        "name": "Фрунзенский",
+        "name": "В общем по Минску",
         "indicators": [
           {
             "name": "Загрязнение",
