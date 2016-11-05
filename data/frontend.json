@@ -1,32 +1,68 @@
 [
   {
-    "city": "Минск",
-    "params": [
+    "name": "Минск",
+    "districts": [
       {
-        "parameter": "Загрязнение",
-        "average": "200",
-        "value": "100",
-        "unit": "кг/ам",
-        "isOk": true
+        "name": "Советский",
+        "indicators": [
+          {
+            "name": "Загрязнение",
+            "average": "200",
+            "value": "100",
+            "unit": "кг/ам",
+            "isOk": true
+          },
+          {
+            "name": "accidents",
+            "average": "120",
+            "value": "80",
+            "isOk": false
+          },
+          {
+            "name": "amenity",
+            "average": "50",
+            "value": "10",
+            "isOk": true
+          },
+          {
+            "name": "Количество кафешек",
+            "average": "7",
+            "value": "3",
+            "unit": "шт",
+            "isOk": true
+          }
+        ]
       },
       {
-        "parameter": "accidents",
-        "average": "120",
-        "value": "80",
-        "isOk": false
-      },
-      {
-        "parameter": "amenity",
-        "average": "50",
-        "value": "10",
-        "isOk": true
-      },
-      {
-        "parameter": "Количество кафешек",
-        "average": "7",
-        "value": "3",
-        "unit": "шт",
-        "isOk": true
+        "name": "Фрунзенский",
+        "indicators": [
+          {
+            "name": "Загрязнение",
+            "average": "200",
+            "value": "57",
+            "unit": "кг/ам",
+            "isOk": true
+          },
+          {
+            "name": "accidents",
+            "average": "89",
+            "value": "80",
+            "isOk": false
+          },
+          {
+            "name": "amenity",
+            "average": "50",
+            "value": "7",
+            "isOk": true
+          },
+          {
+            "name": "Количество кафешек",
+            "average": "90",
+            "value": "5",
+            "unit": "шт",
+            "isOk": true
+          }
+        ]
       }
     ]
   }
