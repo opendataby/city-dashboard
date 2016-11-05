@@ -1,19 +1,36 @@
 $(function () {
-    console.log('start!')
-    $.get('/city-dashboard/data/test.json', function (data) {
-        console.log(data)
+    $.get('/city-dashboard/data/frontend.json', function (data) {
+      var template = '';
+      $.each(data[0]['params'], function(index, params) {
+        template += indicator(params);
+      });
 
-        var template = `<div class="panel panel-default">
-					<div class="panel-body easypiechart-panel">
-						<h4>Забруджванне</h4>
-						<div class="easypiechart" id="easypiechart-blue" data-percent="${data.pollution}" ><span class="percent">${data.pollution}%</span>
-						</div>
-					</div>
-				</div>`
+      $('#indicators').html(template);
 
-        $('#chart_pollution').html(template)
+      $('.easypiechart-teal').easyPieChart({
+        scaleColor: false,
+        barColor: '#1ebfae'
+      });
 
+      $('.easypiechart-red').easyPieChart({
+        scaleColor: false,
+        barColor: '#f9243f'
+      });
+    });
+});
 
+function indicator(params){
+  // One more color: orange
+  var color = params['value'] <= params['average'] ? 'teal' : 'red';
+  var unit = params['unit'] !== undefined ? params['unit'] : ''
 
-    })
-})
+  return `<div class="col-xs-6 col-md-3">
+            <div class="panel panel-default">
+              <div class="panel-body easypiechart-panel">
+                <h4>${params['parameter']}</h4>
+                <div class="easypiechart easypiechart-${color}" data-percent="${params['value']}" ><span class="percent">${params['value']} ${unit}</span>
+                </div>
+              </div>
+            </div>
+          </div>`;
+}
