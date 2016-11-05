@@ -2,11 +2,12 @@ $(function () {
     $.get('/city-dashboard/data/frontend.json', function (data) {
       var template = '';
       $.each(data[0]['districts'], function(index, district) {
-        console.log(district['name'])
+        template += "<div class='row'>";
         template += "<h1>" + district['name'] + "</h1>";
         $.each(district['indicators'], function(index, indicator) {
           template += buildTemplateIndicator(indicator);
         });
+        template += "</div>";
       });
 
       $('#dashboard').html(template);
