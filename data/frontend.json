@@ -1,11 +1,12 @@
 [
   {
-    city: "Minsk",
-    params: [
+    "city": "Минск",
+    "params": [
       {
-        "parameter": "pollution",
+        "parameter": "Загрязнение",
         "average": "200",
         "value": "100",
+        "unit": "кг/ам",
         "isOk": true
       },
       {
@@ -21,9 +22,10 @@
         "isOk": true
       },
       {
-        "parameter": "forest",
-        "average": "1000",
-        "value": "678",
+        "parameter": "Количество кафешек",
+        "average": "7",
+        "value": "3",
+        "unit": "шт",
         "isOk": true
       }
     ]
