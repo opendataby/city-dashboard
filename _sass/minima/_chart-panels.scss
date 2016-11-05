@@ -10,6 +10,14 @@
     background-color: #fff;
     padding-top: 5px;
     margin-top: 0;
+    margin-bottom: 3px;
+    width: 140px;
+    height: 140px;
+  }
+
+  .percent.chart-panel__value {
+    top: 42px;
+    width: 140px;
   }
 }
 
@@ -24,3 +32,29 @@
   color: #fff;
 }
 
+.chart-panel__achievement {
+  display: block;
+  position: absolute;
+  top: 85px;
+  left: 97px;
+  font-size: 24px;
+  background-color: #fff;
+  border: 2px solid #fff;
+  border-radius: 50%;
+
+  &_on-the-way {
+    color: #ffc72e;
+  }
+
+  &_crash {
+    color: #f20200;
+  }
+
+  &_done {
+    color: #007613;
+  }
+}
+
+.chart-panel__dimension {
+  color: #a5a5c4;
+}
