@@ -1,7 +1,7 @@
 $(function () {
-    console.log('start!');
+    console.log('start!')
     $.get('/city-dashboard/data/test.json', function (data) {
-        console.log(data);
+        console.log(data)
 
         var template = `<div class="panel panel-default chart-panel">
 					<div class="panel-body easypiechart-panel">
@@ -13,13 +13,13 @@ $(function () {
 						    <i class="fa fa-check-circle chart-panel__achievement chart-panel__achievement_done" aria-hidden="true"></i>
 						</div>
 					</div>
-				</div>`;
+				</div>`
 
-        $('#chart_pollution').html(template);
+        $('#chart_pollution').html(template)
 
         $('#easypiechart-blue').easyPieChart({
             scaleColor: false,
             barColor: '#30a5ff'
-        });
+        })
     })
-});
+})
