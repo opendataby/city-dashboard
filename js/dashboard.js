@@ -28,13 +28,19 @@ function buildTemplateIndicator(indicator){
   // One more color: orange
   var color = indicator['value'] <= indicator['average'] ? 'teal' : 'red';
   var unit = indicator['unit'] !== undefined ? indicator['unit'] : ''
+
+  var icon = ''
+  if(indicator['icon']){
+    icon = '<i class="fa ' + indicator["icon"] + ' chart-panel__icon" aria-hidden="true"></i>'
+  }
+
   var achievement = ''
   // var achievement = '<i class="fa fa-arrow-circle-right chart-panel__achievement chart-panel__achievement_on-the-way" aria-hidden="true"></i>'
 
   return `<div class="col-xs-3 col-md-3 col-mobile">
             <div class="panel panel-default chart-panel">
               <div class="panel-body easypiechart-panel">
-                <i class="fa fa-hospital-o chart-panel__icon" aria-hidden="true"></i>
+                ${icon}
                 <h4>${indicator['name']}</h4>
                 <div class="easypiechart chart-panel__easypiechart">
                   <div class="easypiechart-${color}" data-percent="${indicator['value']}" ><span class="percent chart-panel__value">${indicator['value']}</span></div>
