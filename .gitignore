@@ -4,6 +4,6 @@ _site
 .DS_Store
 .idea/
 city-dashboard.iml
-dashboard/
-scripts/node_modules/
+dashboard
+scripts/node_modules
 

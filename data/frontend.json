@@ -1,30 +1,79 @@
 [
   {
-    city: "Minsk",
-    params: [
+    "name": "Минск",
+    "districts": [
       {
-        "parameter": "pollution",
-        "average": "200",
-        "value": "100",
-        "isOk": true
+        "name": "Первомайский район",
+        "indicators": [
+          {
+            "name": "Загрязнение твёрдыми частицами",
+            "icon": "fa-thermometer-full",
+            "average": "100",
+            "value": "200",
+            "unit": "%",
+            "isOk": true,
+            "unit": "Максимальное превышение за неделю"
+          },
+          {
+            "name": "Лесопарки - больше среднего по городу",
+            "icon": "fa-car",
+            "average": "150",
+            "value": "115",
+            "isOk": true,
+            "unit": "На 15% больше среднего по городу"
+          },
+          {
+            "icon": "fa-fire-extinguisher",
+            "name": "Обеспеченность кафе",
+            "average": "7",
+            "value": "7",
+            "unit": "шт",
+            "isOk": true,
+            "unit": "7 кафе на 10000 человек. Равно среднему по городу."
+
+          }
+        ]
       },
       {
-        "parameter": "accidents",
-        "average": "120",
-        "value": "80",
-        "isOk": false
-      },
-      {
-        "parameter": "amenity",
-        "average": "50",
-        "value": "10",
-        "isOk": true
-      },
-      {
-        "parameter": "forest",
-        "average": "1000",
-        "value": "678",
-        "isOk": true
+        "name": "В общем по Минску",
+        "indicators": [
+          {
+            "name": "Загрязнение твёрдыми частицами",
+            "icon": "fa-bicycle",
+            "average": "100",
+            "value": "200",
+            "unit": "%",
+            "isOk": false,
+            "unit": "Были регулярные превышения нормы в районе ул. Радиальной и ул. Героев 120 дивизии"
+
+          },
+          {
+            "name": "Среднее количество кафе на 10 000",
+            "icon": "fa-bug",
+            "average": "100",
+            "value": "7",
+            "isOk": false,
+            "caption": ""
+
+          },
+          {
+            "name": "Количество ДТП - уменьшение за год",
+            "icon": "fa-bicycle",
+            "average": "100",
+            "value": "-9.5",
+            "isOk": true,
+            "unit": "Уменьшилось на 9.5% с 39 до 35 на 100 000 населения"
+          },
+          {
+            "name": "Число погибших в ДТП - уменьшение за год",
+            "icon": "fa-skull ",
+            "average": "44",
+            "value": "-6.8",
+            "unit": "%",
+            "isOk": true,
+            "unit": "Уменьшилось с 44 до 41"
+          }
+        ]
       }
     ]
   }
