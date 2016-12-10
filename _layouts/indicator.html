@@ -1,6 +1,18 @@
 ---
 layout: default
 ---
-<div>
-    {{ page.title | escape }}
-</div>
+<article class="post">
+
+    <header class="post-header">
+        <h1 class="post-title">{{ page.title | escape }}</h1>
+    </header>
+
+    <div style="padding-bottom: 20px;">
+        <b>link: </b>{{page.source_datasource}}
+    </div>
+
+    <div class="post-content">
+        {{ content }}
+    </div>
+
+</article>

@@ -2,6 +2,12 @@
 City dashboard for Minsk using open datasets/  
 Приборная доска города Минска на открытых датасетах
 
+Ссылка на сообщество в телеграмме - https://telegram.me/opendataby
+
+Данные статистического сборника по Минску 2016 - https://drive.google.com/open?id=0Bw7tm54_sRnVVGt6UTNsSnlFSWM
+
+
+
 Вот презентация проекта, сделанная на Imaguru Smart city Hackaton: 
 https://docs.google.com/presentation/d/1LswWnZdU7O-vtYbdhhXBd6738gWPfNrittm4ZiiTpLQ/edit#slide=id.g139ff650ef_1_20 
 
