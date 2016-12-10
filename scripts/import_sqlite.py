@@ -24,14 +24,6 @@ def ensure_table_exists_stmt(table_name, columns):
     )
 
 
-def filter_row(data, known, wanted):
-    return OrderedDict({
-        key: data[key]
-        for key in known
-        if key in wanted
-    })
-
-
 def insert_stmt(table_name, keys):
     placeholders = ', '.join(':{}'.format(key) for key in keys)
     return 'INSERT INTO {} ({}) VALUES {}'.format(
@@ -104,13 +96,9 @@ if __name__ == '__main__':
         cursor.execute(stmt)
         logger.info('Going to write to %s table', cmd_args.table)
 
-        rows = (
-            filter_row(row_dict, reader.fieldnames, columns)
-            for row_dict in reader
-        )
         stmt = insert_stmt(cmd_args.table, columns)
         logger.debug('Hit queries\n > %s', stmt)
-        result = cursor.executemany(stmt, rows)
+        result = cursor.executemany(stmt, reader)
 
         logger.debug('Committing changes now')
         connection.commit()
