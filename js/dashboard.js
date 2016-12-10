@@ -20,6 +20,7 @@ function render(data) {
 
   $('[data-toggle="tooltip"]').tooltip();
 
+  $('#')
   $('.easypiechart-teal').easyPieChart({
     scaleColor: false,
     barColor: '#1ebfae'
@@ -95,7 +96,7 @@ function buildTemplateIndicator(indicator){
 
   return `<div class="col-xs-3 col-md-3 col-mobile">
             <div class="panel panel-default chart-panel" data-toggle="tooltip" data-placement="top" title="${tooltip}">
-              <div class="panel-body easypiechart-panel">
+              <div class="panel-body easypiechart-panel"  data-toggle="modal" data-target="#myModal">
                 ${icon}
                 <h4>${indicator['name']}</h4>
                 <div class="easypiechart chart-panel__easypiechart">
