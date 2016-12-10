@@ -26,10 +26,10 @@ def ensure_table_exists_stmt(table_name, columns):
 
 def insert_stmt(table_name, keys):
     placeholders = ', '.join(':{}'.format(key) for key in keys)
-    return 'INSERT INTO {} ({}) VALUES {}'.format(
+    return 'INSERT INTO {} ({}) VALUES ({})'.format(
         table_name,
         ', '.join(keys),
-        '({})'.format(placeholders)
+        placeholders,
     )
 
 
