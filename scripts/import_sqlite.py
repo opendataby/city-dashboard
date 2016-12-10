@@ -16,13 +16,11 @@ from collections import (
     OrderedDict,
 )
 
-INSERT_CHUNK_SIZE = 1
 
-
-def ensure_table_exists_stmt(name, columns):
+def ensure_table_exists_stmt(table_name, columns):
     return 'CREATE TABLE IF NOT EXISTS {} ({})'.format(
-        name,
-        ', '.join(' '.join(item) for item in columns.items())
+        table_name,
+        ', '.join(' '.join(name_and_affinity) for name_and_affinity in columns.items())
     )
 
 
@@ -35,6 +33,10 @@ def filter_row(data, known, wanted):
 
 
 def bulk_insert_stmt(table_name, keys, rows):
+    """
+    This approach uses O(n) memory footprint 'cause all the rows gonna be processed as one insert-statement.
+    The resulting query string could be quite long!
+    """
     values = (
         '({})'.format(', '.join(repr(data[key]) for key in keys))
         for data in rows
@@ -54,8 +56,8 @@ def get_column_types(numeric_columns, default):
     return data
 
 
-if __name__ == '__main__':
-    argparser = argparse.ArgumentParser(description=__doc__)
+def parse_args(description):
+    argparser = argparse.ArgumentParser(description=description)
     argparser.add_argument('-v', action='store_true', dest='verbose', help='Verbose logging to console')
     argparser.add_argument('database', action='store', help='Filename of sqlite3 database to connect')
     argparser.add_argument('table', action='store', help='Table name to save rows to')
@@ -73,11 +75,18 @@ if __name__ == '__main__':
         help='Comma separated list of columns with numeric values. It may contain integers or doubles',
     )
     argparser.add_argument('input', action='store', help='Data stream to read. Filename or "-" for stdin')
-    cmd_args = argparser.parse_args()
+    return argparser.parse_args()
 
-    logging_level = logging.DEBUG if cmd_args.verbose else logging.INFO
+
+def get_logger(logging_level):
     logging.basicConfig(level=logging_level)
-    logger = logging.getLogger('import')
+    return logging.getLogger('import')
+
+
+if __name__ == '__main__':
+    cmd_args = parse_args(__doc__)
+
+    logger = get_logger(logging.DEBUG if cmd_args.verbose else logging.INFO)
 
     column_types = get_column_types(cmd_args.numeric.split(','), 'TEXT')
     columns = OrderedDict({
