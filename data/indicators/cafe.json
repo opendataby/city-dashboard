@@ -5,7 +5,7 @@
   "value": "7",
   "isOk": false,
   "unit": "кафе на 10 000 ч.",
-  "tooltip": "",
+  "tooltip": "Кафе на 10 000 ч.",
   "districts": [
     {
       "id": "perv",
