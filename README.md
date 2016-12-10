@@ -2,8 +2,7 @@
 City dashboard for Minsk using open datasets/  
 Приборная доска города Минска на открытых датасетах
 
-Ссылка на мессенджеры - 
-https://telegram.me/opendataby
+Ссылка на сообщество в телеграмме - https://telegram.me/opendataby
 
 
 
