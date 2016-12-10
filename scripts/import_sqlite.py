@@ -32,19 +32,12 @@ def filter_row(data, known, wanted):
     })
 
 
-def bulk_insert_stmt(table_name, keys, rows):
-    """
-    This approach uses O(n) memory footprint 'cause all the rows gonna be processed as one insert-statement.
-    The resulting query string could be quite long!
-    """
-    values = (
-        '({})'.format(', '.join(repr(data[key]) for key in keys))
-        for data in rows
-    )
+def insert_stmt(table_name, keys):
+    placeholders = ', '.join(':{}'.format(key) for key in keys)
     return 'INSERT INTO {} ({}) VALUES {}'.format(
         table_name,
         ', '.join(keys),
-        ', '.join(values)
+        '({})'.format(placeholders)
     )
 
 
@@ -54,6 +47,14 @@ def get_column_types(numeric_columns, default):
         data[name] = 'NUMERIC'
 
     return data
+
+
+def get_columns(column_names, numeric_columns):
+    columns = OrderedDict()
+    column_types = get_column_types(numeric_columns, 'TEXT')
+    for name in column_names:
+        columns[name] = column_types[name]
+    return columns
 
 
 def parse_args(description):
@@ -85,42 +86,33 @@ def get_logger(logging_level):
 
 if __name__ == '__main__':
     cmd_args = parse_args(__doc__)
-
     logger = get_logger(logging.DEBUG if cmd_args.verbose else logging.INFO)
 
-    column_types = get_column_types(cmd_args.numeric.split(','), 'TEXT')
-    columns = OrderedDict({
-        name: column_types[name]
-        for name in cmd_args.columns.split(',')
-    })
-
     stream = sys.stdin if cmd_args.input == '-' else open(cmd_args.input)
+    reader = csv.DictReader(stream)
+    logger.info('Detected %d named csv-fields total', len(reader.fieldnames))
 
     connection = sqlite3.connect(cmd_args.database)
     cursor = connection.cursor()
     logger.info('Connected to database %s', cmd_args.database)
+
+    columns = get_columns(cmd_args.columns.split(','), cmd_args.numeric.split(','))
+
     try:
         stmt = ensure_table_exists_stmt(cmd_args.table, columns)
         logger.debug('Hit query\n > %s', stmt)
-        cursor.execute(stmt).fetchone()
-        logger.info('Goind to write to %s table', cmd_args.table)
-
-        reader = csv.DictReader(stream)
-        logger.debug('Detected %d named csv-fields', len(reader.fieldnames))
+        cursor.execute(stmt)
+        logger.info('Going to write to %s table', cmd_args.table)
 
         rows = (
             filter_row(row_dict, reader.fieldnames, columns)
             for row_dict in reader
         )
-        stmt = bulk_insert_stmt(
-            cmd_args.table,
-            columns,
-            rows
-        )
-        logger.debug('Hit query\n > %s', stmt)
-        cursor.execute(stmt).fetchone()
+        stmt = insert_stmt(cmd_args.table, columns)
+        logger.debug('Hit queries\n > %s', stmt)
+        result = cursor.executemany(stmt, rows)
 
-        logger.info('Committing changes now')
+        logger.debug('Committing changes now')
         connection.commit()
     finally:
         logger.debug('Closing db connection')
