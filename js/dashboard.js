@@ -1,26 +1,76 @@
+function render(data) {
+  var template = '';
+
+  var districts = _.keys(data)
+
+  districts.forEach(function (districtId) {
+    const district = data[districtId]
+
+    template += "<div class='row'>";
+    template += `<h1 id=${districtId}>${district['name']}</h1>`;
+
+    $.each(district['indicators'], function(index, indicator) {
+      template += buildTemplateIndicator(indicator);
+    });
+
+    template += "</div>";
+  })
+
+  $('#dashboard').html(template);
+
+  $('.easypiechart-teal').easyPieChart({
+    scaleColor: false,
+    barColor: '#1ebfae'
+  });
+
+  $('.easypiechart-red').easyPieChart({
+    scaleColor: false,
+    barColor: '#f9243f'
+  });
+}
+
 $(function () {
-    $.get('/city-dashboard/data/frontend.json', function (data) {
-      var template = '';
-      $.each(data[0]['districts'], function(index, district) {
-        template += "<div class='row'>";
-        template += "<h1>" + district['name'] + "</h1>";
-        $.each(district['indicators'], function(index, indicator) {
-          template += buildTemplateIndicator(indicator);
-        });
-        template += "</div>";
-      });
+    $.get('/city-dashboard/frontend.json', function (frontendData) {
+      let fetchData = Promise.all(
+          frontendData
+          .map((indicator) => `data/indicators/${indicator.data}`)
+          .map(dataUrl=>($.get(dataUrl)))
+      )
 
-      $('#dashboard').html(template);
+      fetchData.then(function (indicatorData) {
+        var indicatorHash = indicatorData.reduce(function (hash, indicator) {
+          hash[indicator.id] = indicator
+          return hash
+        }, {})
 
-      $('.easypiechart-teal').easyPieChart({
-        scaleColor: false,
-        barColor: '#1ebfae'
-      });
+        var districtsData = indicatorData.reduce(function (districtsHash, indicator) {
+          const indicatorId = indicator.id
 
-      $('.easypiechart-red').easyPieChart({
-        scaleColor: false,
-        barColor: '#f9243f'
-      });
+          indicator.districts.forEach(function (district) {
+            let districtData = districtsHash[district.id]
+
+            if (districtData === undefined) {
+              districtsHash[district.id] = {
+                name: district.name,
+                indicators: []
+              }
+              districtData =  districtsHash[district.id]
+            }
+
+            let indicatorData = _.cloneDeep(indicator)
+            delete indicatorData.districts
+            indicatorData.value = district.value
+            indicatorData.isOk = district.isOk
+
+            districtData.indicators.push(indicatorData)
+          })
+
+          return districtsHash
+        }, {})
+        console.log(indicatorHash, districtsData)
+
+        render(districtsData)
+      })
     });
 });
 

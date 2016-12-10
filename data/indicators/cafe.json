@@ -1,0 +1,23 @@
+{
+  "name": "Среднее количество кафе на 10 000",
+  "icon": "fa-bug",
+  "average": "100",
+  "value": "7",
+  "isOk": false,
+  "unit": "кафе на 10 000 ч.",
+  "tooltip": "",
+  "districts": [
+    {
+      "id": "perv",
+      "name": "Первомайский район",
+      "value": "7",
+      "isOk": true
+    },
+    {
+      "id": "minsk",
+      "name": "В общем по Минску",
+      "value": "7",
+      "isOk": true
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "Загрязнение твёрдыми частицами",
+  "icon": "fa-thermometer-full",
+  "average": "100",
+  "unit": "% к ПДК",
+  "tooltip": "Максимальное превышение за неделю",
+  "districts": [
+    {
+      "name": "Первомайский район",
+      "id": "perv",
+      "value": "200",
+      "isOk": true
+    },
+    {
+      "id": "minsk",
+      "name": "В общем по Минску",
+      "value": "200",
+      "isOk": false
+    }
+  ]
+}

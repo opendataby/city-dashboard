@@ -1,0 +1,13 @@
+---
+layout: nil
+---
+
+[
+  {% for indicator in site.indicators %}
+    {
+      "title": "{{ indicator.title }}",
+      "url" : "{{ indicator.url }}",
+      "data": "{{ indicator.data }}"
+    } {% if forloop.last %}{% else %},{% endif %}
+  {% endfor %}
+]
