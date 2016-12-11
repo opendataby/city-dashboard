@@ -18,6 +18,8 @@ function render(data) {
 
   $('#dashboard').html(template);
 
+  $('[data-toggle="tooltip"]').tooltip();
+
   $('.easypiechart-teal').easyPieChart({
     scaleColor: false,
     barColor: '#1ebfae'
@@ -74,11 +76,15 @@ $(function () {
     });
 });
 
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+});
+
 function buildTemplateIndicator(indicator){
   // One more color: orange
-  var color = indicator['value'] <= indicator['average'] ? 'teal' : 'red';
+  var color = indicator['value'] <= indicator['average'] ? 'teal' : 'red'
   var unit = indicator['unit'] !== undefined ? indicator['unit'] : ''
-
+  var tooltip = indicator['tooltip'] !== undefined ? indicator['tooltip'] : ''
   var icon = ''
   if(indicator['icon']){
     icon = '<i class="fa ' + indicator["icon"] + ' chart-panel__icon" aria-hidden="true"></i>'
@@ -88,7 +94,7 @@ function buildTemplateIndicator(indicator){
   // var achievement = '<i class="fa fa-arrow-circle-right chart-panel__achievement chart-panel__achievement_on-the-way" aria-hidden="true"></i>'
 
   return `<div class="col-xs-3 col-md-3 col-mobile">
-            <div class="panel panel-default chart-panel">
+            <div class="panel panel-default chart-panel" data-toggle="tooltip" data-placement="top" title="${tooltip}">
               <div class="panel-body easypiechart-panel">
                 ${icon}
                 <h4>${indicator['name']}</h4>
@@ -101,3 +107,4 @@ function buildTemplateIndicator(indicator){
             </div>
           </div>`
 }
+

@@ -6,4 +6,5 @@ _site
 city-dashboard.iml
 dashboard
 scripts/node_modules
+Gemfile.lock
 
