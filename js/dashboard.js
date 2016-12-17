@@ -20,6 +20,13 @@ function render(data) {
 
   $('[data-toggle="tooltip"]').tooltip();
 
+
+  $(".description-modal").click(function(){
+    $('#myModalLabel').html($(this).data('modalTitle'));
+    $('#myModalText').html($(this).data('modalDescription'));
+    $("#myModal").modal();
+  });
+
   $('.easypiechart-teal').easyPieChart({
     scaleColor: false,
     barColor: '#1ebfae'
@@ -76,12 +83,9 @@ $(function () {
     });
 });
 
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-});
-
 function buildTemplateIndicator(indicator){
   // One more color: orange
+  var name = indicator['name']
   var color = indicator['value'] <= indicator['average'] ? 'teal' : 'red'
   var unit = indicator['unit'] !== undefined ? indicator['unit'] : ''
   var tooltip = indicator['tooltip'] !== undefined ? indicator['tooltip'] : ''
@@ -95,9 +99,9 @@ function buildTemplateIndicator(indicator){
 
   return `<div class="col-xs-3 col-md-3 col-mobile">
             <div class="panel panel-default chart-panel" data-toggle="tooltip" data-placement="top" title="${tooltip}">
-              <div class="panel-body easypiechart-panel">
+              <div class="panel-body easypiechart-panel description-modal" data-modal-title="${name}" data-modal-description="Test description">
                 ${icon}
-                <h4>${indicator['name']}</h4>
+                <h4>${name}</h4>
                 <div class="easypiechart chart-panel__easypiechart">
                   <div class="easypiechart-${color}" data-percent="${indicator['value']}" ><span class="percent chart-panel__value">${indicator['value']}</span></div>
                   ${achievement}
