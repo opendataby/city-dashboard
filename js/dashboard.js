@@ -39,7 +39,7 @@ function render(data) {
 }
 
 $(function () {
-    $.get('/city-dashboard/frontend.json', function (frontendData) {
+    $.get('frontend.json', function (frontendData) {
       let fetchData = Promise.all(
           frontendData
           .map((indicator) => `data/indicators/${indicator.data}`)
