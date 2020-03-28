@@ -1,7 +1,18 @@
 #!/usr/bin/env python3
 """
 Opendata csv to sqlite3 importer.
-This script allows to convert csv-stream to rows in sqlite table
+
+This script allows to convert csv-stream to rows in sqlite table to allow quering it.
+
+The main idea behind this tool was that it is relatively easy to write an SQL query
+to filter/join the data sources. While operating with pandas-dataframes or numpy-arrays
+requires at least some development experience.
+
+Basically, this is an equivalent to `.import my-file.csv my-tabel` command of sqlite client
+
+Here are some resources on how to extract/filter data from the sqlite DB
+- [SQLite language reference](https://www.sqlite.org/lang.html)
+- [SQLite tutorial using Ubuntu (ru)](https://proglib.io/p/sqlite-tutorial)
 """
 
 import argparse
