@@ -39,7 +39,7 @@
 * Устанавливаете jekyll и запускаете локальный сервер:
 ```
 cd city-dashboard
-bundle install
+bundle install --path .bundle/gems
 bundle exec jekyll serve
 ```
 
