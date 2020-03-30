@@ -1,1 +1,1 @@
-<a href="https://github.com/{{ include.username }}"><span class="icon icon--github">{% include icon-github.svg %}</span><span class="username">{{ include.username }}/city-dashboard</span></a>
+<a href="{{ include.repo }}"><span class="icon icon--github">{% include icon-github.svg %}</span><span>{{ include.repo | split: "/" | last }}</span></a>
