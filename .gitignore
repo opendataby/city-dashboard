@@ -8,3 +8,5 @@ dashboard
 scripts/node_modules
 Gemfile.lock
 
+# ignore Ruby `bundler` config and gems cache
+.bundle
