@@ -22,7 +22,6 @@ email: help@opendata.by
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "city.opendata.by" # the base hostname & protocol for your site
 #twitter_username: jekyllrb
-github_username:  opendataby
 
 collections:
   indicators:
@@ -31,3 +30,9 @@ collections:
 # Build settings
 markdown: kramdown
 # theme: minima
+
+
+# --- custom variables for city dashboard project ----------------------------
+
+source_repo: "https://github.com/opendataby/city-dashboard"
+
