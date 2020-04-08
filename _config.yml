@@ -1,38 +1,22 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing these this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
+# Config for Jekyll static site generator.
 
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
+# Standard variables like {{ site.title }}, {{ site.email }}, and so on.
+# For custom variables to be accessed in templates like {{ site.myvariable }},
+# see the block separated by dashes below.
+ 
 title: Гарадскі дашборд
 email: help@opendata.by
-#description: > # this means to ignore newlines until "baseurl:"
-#  Write an awesome description for your new site here. You can edit this
-#  line in _config.yml. It will appear in your document head meta (for
-#  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "city.opendata.by" # the base hostname & protocol for your site
+description: Minsk City Dashboard, built in open source way with open data.
+baseurl: ""
+url: "city.opendata.by"
 #twitter_username: jekyllrb
 
 collections:
   indicators:
     output: true
 
-# Build settings
-markdown: kramdown
-# theme: minima
 
-
-# --- custom variables for city dashboard project ----------------------------
+# --- custom variables for city dashboard ------------------------------------
 
 source_repo: "https://github.com/opendataby/city-dashboard"
 
