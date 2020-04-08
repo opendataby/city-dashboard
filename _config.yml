@@ -1,8 +1,11 @@
 # Config for Jekyll static site generator.
 
-# Standard variables like {{ site.title }}, {{ site.email }}, and so on.
-# For custom variables to be accessed in templates like {{ site.myvariable }},
-# see the block separated by dashes below.
+exclude:
+  - docs
+
+# Standard template variables like {{ site.title }}, {{ site.email }}, and so
+# on, are below. Custom variables like {{ site.myvariable }} are in the next
+# block separated by dashes.
  
 title: Гарадскі дашборд
 email: help@opendata.by
@@ -14,7 +17,6 @@ url: "city.opendata.by"
 collections:
   indicators:
     output: true
-
 
 # --- custom variables for city dashboard ------------------------------------
 
