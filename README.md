@@ -26,24 +26,26 @@
 
 
 
-# Вайцi в айцi
+# Как редактировть сайт
 
-Для гиков - сайт статический, генерируется с помощью Jekyll (GitHub Pages). https://jekyllrb.com/docs/pages/ - минимально понятное описаниа, чтобы понять, что делает Jekyll и как менять содержимое страничек.
+Для редактирования главной страницы, проще всего открыть `index.html` на GitHub. Сайт статический,
+но генерируется с помощью Jekyll (GitHub Pages). На https://jekyllrb.com/docs/pages/ описано, что
+делает Jekyll и какие ещё страницы могут быть.
 
-Чтобы править сайт на своём компе, нужен [Ruby](https://ru.wikibooks.org/wiki/Ruby/%D0%9D%D0%B0%D1%87%D0%B0%D0%BB%D0%BE_%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B/%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0) и git.
+Чтобы править сайт на своём компе, нужен [Ruby](https://ru.wikibooks.org/wiki/Ruby/%D0%9D%D0%B0%D1%87%D0%B0%D0%BB%D0%BE_%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B/%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0), git и следуюшие действия.
 
-* Скачиваете код:
+* Скачать код:
 
       git clone git@github.com:opendataby/city-dashboard.git
 
-* Устанавливаете jekyll и запускаете локальный сервер:
-```
-cd city-dashboard
-bundle install --path .bundle/gems
-bundle exec jekyll serve
-```
+* Установить зависимости и запустить сервер, который будет собирать и отображать сайт локально на http://localhost:4000
 
-Открываете http://localhost:4000, и если там что-то есть, то можно править файлики и смотреть, что получается. Если получается ничего, то добро пожаловать в https://t.me/opendataby )
+      cd city-dashboard
+      bundle install --path .bundle/gems
+      bundle exec jekyll serve
+
+Чтобы не вспоминать команды, можно запустить скрипт `./serve.sh` который делает тоже самое. 
+Если что-то не получается, или есть вопросы, пишите в Телеграм https://t.me/opendataby
 
 Поделиться своими правками можно "форкнув репозиторий" под своим именем (см.кнопку Fork вверху), и запихав в него изменения:
 ```
